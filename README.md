@@ -1,16 +1,25 @@
-## Hi there 👋
+<h1 align="center">Hola 👋, soy Yjers</h1>
+<p align="center">
+  Desarrollador Full Stack | Apasionado por JavaScript y Python | Entusiasta de las APIs
+</p>
 
-<!--
-**yjers/yjers** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
 
-Here are some ideas to get you started:
+## 🚀 Sobre mí
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 🌐 Me encanta crear **aplicaciones web interactivas** y herramientas con **integración de APIs**
+- 💻 Stack de tecnologías: HTML, CSS, JavaScript, TypeScript, Python
+- 📡 Actualmente explorando más proyectos con APIs y desafíos en TypeScript
+- ✨ Fun fact: Uso GitHub como mi laboratorio digital
+
+---
+
+## 💻 Lenguajes que uso
+
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML5-e34c26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-264de4?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-f7df1e?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/Python-3776ab?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-007acc?style=for-the-badge&logo=typescript&logoColor=white" />
+</p>
