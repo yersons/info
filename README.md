@@ -1,4 +1,4 @@
-<h1 align="center">Hola 👋, soy Yjers</h1>
+<h1 align="center">Hola 👋, soy Jerson</h1>
 <p align="center">
   Desarrollador Full Stack | Apasionado por JavaScript y Python | Entusiasta de las APIs
 </p>
