@@ -1,7 +1,7 @@
 const terminal = document.getElementById("terminal");
 
 const lines = [
-  { type: "command", text: "Social-Media" },
+  { type: "command", text: "whoami" },
   { type: "command", text: "$ UserInfo" },
   { type: "response", text: "Nombre: Yerson Perez" },
   { type: "response", text: "Carrera: Logística y Transporte" },
