@@ -1,0 +1,46 @@
+body {
+  background: #000;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  margin: 20px;
+}
+
+.terminal {
+  white-space: pre-wrap;
+  text-align: left;
+  word-wrap: break-word;
+  max-width: 90%; /* evita que ocupe todo el ancho */
+}
+
+
+.command {
+  color: #34e9e9; /* amarillo dorado */
+}
+
+.response {
+  color: #aaaaaa;
+  margin-left: 2ch; /* sangría de dos caracteres */
+}
+
+
+a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background: #00ff00;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
