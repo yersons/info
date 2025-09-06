@@ -9,11 +9,8 @@ const lines = [
   { type: "response", text: "Skills: nada" },
   { type: "response", text: "Hobbies: Música, Ver películas" },
   { type: "command", text: "$ ls social/" },
-  { type: "response", text: "<a href='https://instagram.com/' target='_blank'>instagram/</a>" },
-  { type: "response", text: "<a href='https://tiktok.com/' target='_blank'>tiktok/</a>" },
-  { type: "response", text: "<a href='https://youtube.com/' target='_blank'>youtube/</a>" },
-  { type: "response", text: " <a href='https://linkedin.com/' target='_blank'>linkedin/</a>" },
-  { type: "command", text: "> _" }
+  { type: "response", text: "<a href='https://www.instagram.com/jer.sonr?igsh=bTZ5ZGJmdTdydWs0' target='_blank'>instagram/</a>" },
+  { type: "command", text: "$ _" }
 ];
 
 let lineIndex = 0;
@@ -33,7 +30,7 @@ function typeLine() {
       charIndex++;
       setTimeout(typeChar, 50);
     } else {
-      container.innerHTML = line.text; // línea completa
+      container.innerHTML = line.text;
       lineIndex++;
       charIndex = 0;
       setTimeout(typeLine, 500);
