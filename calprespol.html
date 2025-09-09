@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Calculadora Pre Espol</title>
+  <title>Calculadora Pre ESPOL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
@@ -77,7 +77,7 @@
   </header>
 
   <div class="wrap">
-    <h1>Calculadora Pre Espol</h1>
+    <h1>Calculadora Pre ESPOL</h1>
 
     <div class="card">
       <div class="grid">
@@ -128,7 +128,7 @@
           Componente 70%: <span id="sub70">0.0 / 70</span> ·
           Componente 30%: <span id="sub30">0.0 / 30</span>
         </div>
-        <div class="pill">Usando: <span id="origen">Examen final</span></div>
+        <div class="pill">Usando: <span id="origen">Lección + Examen final</span></div>
         <div id="necesita" class="need"></div>
       </div>
     </div>
@@ -154,21 +154,31 @@
       const nTalleres = clamp0100(parseFloat(talleres.value));
       const nTareas = clamp0100(parseFloat(tareas.value));
 
-      // Sub 30 fijo
+      // Componente 30% (0..30 puntos)
       const comp30 = nPruebas*0.10 + nControles*0.05 + nTalleres*0.05 + nTareas*0.10;
 
-      // Comparar final vs mejoramiento
-      const examenEfectivo = Math.max(nExamen, nMejora || 0);
-      origen.textContent = (nMejora > nExamen) ? "Mejoramiento" : "Examen final";
+      // Componente 70% normal (0..70 puntos)
+      const comp70normal = nLeccion*0.20 + nExamen*0.50;
 
-      const comp70 = nLeccion*0.20 + examenEfectivo*0.50;
+      // Mejoramiento (0..100) -> convertido a 0..70
+      const comp70mejora = nMejora * 0.70;
+
+      // Usar el mayor
+      const usaMejora = comp70mejora > comp70normal;
+      const comp70 = usaMejora ? comp70mejora : comp70normal;
+
+      // Nota final precisa
       const notaFinal = comp70 + comp30;
 
-      resultado.textContent = notaFinal.toFixed(1);
+      // Redondear a 1 decimal para mostrar y comparar
+      const notaFinalRedondeada = Math.round(notaFinal * 10) / 10;
+
+      resultado.textContent = notaFinalRedondeada.toFixed(1);
       sub70.textContent = `${comp70.toFixed(1)} / 70`;
       sub30.textContent = `${comp30.toFixed(1)} / 30`;
+      origen.textContent = usaMejora ? "Examen de Mejoramiento" : "Lección + Examen final";
 
-      if (notaFinal >= 60){
+      if (notaFinalRedondeada >= 60){
         estado.textContent = "Aprobada";
         estado.className = "state ok";
         necesita.textContent = "";
@@ -176,12 +186,13 @@
         estado.textContent = "Reprobada";
         estado.className = "state bad";
 
-        // Calcular cuánto necesita en mejoramiento para aprobar
-        const minNecesario = (60 - (nLeccion*0.20 + comp30)) / 0.50;
-        if (minNecesario <= 100){
-          necesita.textContent = `Necesitas al menos ${minNecesario.toFixed(1)} en el Mejoramiento para aprobar.`;
-        } else {
+        // ¿Qué necesito en el Mejoramiento?
+        const req = (60 - comp30) / 0.70;
+        if (req > 100){
           necesita.textContent = "Aunque saques 100 en el Mejoramiento, no alcanzarías 60.";
+        } else {
+          const reqClamped = Math.max(0, req);
+          necesita.textContent = `Necesitas al menos ${reqClamped.toFixed(1)} en el Mejoramiento para aprobar.`;
         }
       }
     }
